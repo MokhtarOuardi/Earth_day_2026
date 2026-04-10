@@ -2,6 +2,8 @@
 
 > **Stop wasting AI water! Google it first, you magnificent lazy human.**
 
+<img width="474" height="760" alt="image" src="https://github.com/user-attachments/assets/5e663cf1-25d7-401b-b66a-d5e889481129" />
+
 **Google It First!** is an eco-friendly Chrome Extension (Manifest V3) built to reduce the massive water footprint left by unnecessary Large Language Model (LLM) queries. By tracking your prompts and pushing you to use a traditional search engine when appropriate, this extension helps save the planet—one search at a time. Designed for Earth Day 2026.
 
 ---
