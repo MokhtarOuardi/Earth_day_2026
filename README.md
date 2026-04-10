@@ -11,7 +11,8 @@
 ##  The Problem: AI is Thirsty
 
 Every time you prompt an AI like ChatGPT or Gemini, data centers spin up servers that require significant cooling. Researchers estimate that a short conversation (20-50 queries) with an LLM can consume up to **500ml of water**. Many common questions you ask an AI could easily be answered by a simple, computationally cheaper Google search.
-![Uploading 2026-04-10 09-49-19.gif…]()
+
+![2026-04-10 09-49-19](https://github.com/user-attachments/assets/f21ccd7d-ca47-4f0c-9014-ded75b8f533d)
 
 
 ##  Features
