@@ -1,0 +1,38 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+\tmargin: 0;
+\tpadding: 0;
+\tborder: 0;
+\toutline: 0;
+\tfont-weight: inherit;
+\tfont-style: inherit;
+\tfont-size: 100%;
+\tfont-family: inherit;
+\tvertical-align: baseline;
+}
+body {
+\tline-height: 1;
+\tcolor: black;
+\tbackground: white;
+}
+table {
+\tborder-collapse: separate;
+\tborder-spacing: 0;
+}
+caption, th, td {
+\ttext-align: left;
+\tfont-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+\tcontent: "";
+}
+blockquote, q {
+\tquotes: "" "";
+}

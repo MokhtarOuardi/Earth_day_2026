@@ -1,0 +1,52 @@
+{
+  "name": "google-it-first",
+  "displayName": "Google It First!",
+  "description": "Stop wasting AI water! Google it first.",
+  "version": "1.0.0",
+  "engines": {
+    "vscode": "^1.80.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "google-it-first-explorer",
+          "title": "Google It First",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "google-it-first-explorer": [
+        {
+          "type": "webview",
+          "id": "googleItFirst.sidebar",
+          "name": "Google It First"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "googleItFirst.openSidebar",
+        "title": "Google It First: Open Chat"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "build": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --external:vscode --format=cjs --platform=node"
+  },
+  "devDependencies": {
+    "@types/node": "^16.18.34",
+    "@types/vscode": "^1.80.0",
+    "esbuild": "^0.18.11",
+    "typescript": "^5.1.3"
+  }
+}

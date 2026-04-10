@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Google It First!</title>
+  <style>
+    :root {
+      --p: #FF4136;
+      --p2: #C0392B;
+      --bg: #0D0D0D;
+      --bg2: #1A1A1A;
+      --bg3: #222;
+      --text: #F5F5F5;
+      --muted: #888;
+      --border: rgba(255, 255, 255, 0.08);
+      --accent: #00D084;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      width: 320px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      overflow: hidden;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, var(--p), var(--p2));
+      padding: 20px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(45deg, transparent, transparent 10px,
+          rgba(0, 0, 0, 0.06) 10px, rgba(0, 0, 0, 0.06) 20px);
+      animation: stripe 20s linear infinite;
+    }
+
+    @keyframes stripe {
+      to {
+        background-position: 28px 0;
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-emoji {
+      font-size: 36px;
+      display: block;
+      text-align: center;
+      margin-bottom: 6px;
+      animation: bounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes bounce {
+      from {
+        transform: scale(0) rotate(-20deg);
+      }
+
+      to {
+        transform: scale(1) rotate(0);
+      }
+    }
+
+    .hero-title {
+      font-size: 17px;
+      font-weight: 800;
+      text-align: center;
+      color: #fff;
+    }
+
+    .hero-sub {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.75);
+      text-align: center;
+      margin-top: 3px;
+      font-style: italic;
+    }
+
+    .body {
+      padding: 16px;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .stat-box {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 12px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--p);
+      display: block;
+      animation: count-in 0.5s ease both;
+    }
+
+    .stat-num.blue {
+      color: #4285F4;
+    }
+
+    @keyframes count-in {
+      from {
+        transform: translateY(10px);
+        opacity: 0;
+      }
+
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .stat-label {
+      font-size: 10px;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .toggle-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 11px 14px;
+      margin-bottom: 10px;
+    }
+
+    .toggle-label {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .toggle-sub {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* Toggle switch */
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .slider::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 16px;
+      height: 16px;
+      background: var(--muted);
+      border-radius: 50%;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.3s;
+    }
+
+    input:checked+.slider {
+      background: var(--p);
+      border-color: var(--p);
+    }
+
+    input:checked+.slider::before {
+      transform: translateX(20px);
+      background: #fff;
+    }
+
+    .sites-section {
+      margin-bottom: 10px;
+    }
+
+    .sites-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--muted);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .site-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .site-chip {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text);
+      cursor: pointer;
+      transition: all 0.2s;
+      user-select: none;
+    }
+
+    .site-chip.active {
+      background: rgba(255, 65, 54, 0.15);
+      border-color: rgba(255, 65, 54, 0.5);
+      color: #FF6B6B;
+    }
+
+    .site-chip:hover {
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .footer-tip {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: center;
+      padding-top: 10px;
+      border-top: 1px solid var(--border);
+      line-height: 1.5;
+    }
+
+    .footer-tip strong {
+      color: var(--accent);
+    }
+
+    .gf-select {
+      background: var(--bg3);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 2px 6px;
+      font-size: 12px;
+      outline: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="hero">
+    <div class="hero-inner">
+      <span class="hero-emoji">🔍</span>
+      <h1 class="hero-title">Google It First!</h1>
+      <p class="hero-sub">Your AI usage eco-cop</p>
+    </div>
+  </div>
+
+  <div class="body">
+    <div class="stats-row">
+      <div class="stat-box">
+        <span class="stat-num" style="color:var(--accent)" id="stat-saved">0 ml</span>
+        <div class="stat-label">Water Saved 💧</div>
+      </div>
+      <div class="stat-box">
+        <span class="stat-num blue" style="color:#FF6B6B" id="stat-water">0 ml</span>
+        <div class="stat-label">Water Wasted 🏜️</div>
+      </div>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">🚨 Interception Active</div>
+        <div class="toggle-sub">Catches sends on AI sites</div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="toggle-enabled" checked />
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="toggle-row">
+      <div>
+        <div class="toggle-label">⏱️ Auto-Proceed Timer</div>
+        <div class="toggle-sub">Skip penalty automatically</div>
+      </div>
+      <select id="setting-auto-proceed" class="gf-select">
+        <option value="-1">Instant</option>
+        <option value="3">3s</option>
+        <option value="5">5s</option>
+        <option value="10">10s</option>
+        <option value="0">Disabled</option>
+      </select>
+    </div>
+
+    <div class="sites-section">
+      <div class="sites-label">Protected Sites</div>
+      <div class="site-list" id="site-list">
+        <!-- Generated by popup.js -->
+      </div>
+    </div>
+
+    <div class="footer-tip">
+      💡 Tip: You've saved <strong id="tip-searches">0</strong> potential Google searches worth of AI compute!
+    </div>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+
+</html>

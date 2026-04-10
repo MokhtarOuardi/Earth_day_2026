@@ -1,0 +1,36 @@
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+\tfont-family: var(--vscode-font-family);
+\tfont-weight: var(--vscode-font-weight);
+\tfont-size: var(--vscode-font-size);
+\tcolor: var(--vscode-foreground);
+    background-color: var(--vscode-editor-background);
+}
+
+button {
+\tborder: none;
+\tpadding: 4px 8px;
+\ttext-align: center;
+\ttext-decoration: none;
+\tdisplay: inline-block;
+\tfont-size: 14px;
+\tmargin: 4px 2px;
+\tcursor: pointer;
+\tbackground-color: var(--vscode-button-background);
+\tcolor: var(--vscode-button-foreground);
+}
+
+button:hover {
+\tbackground-color: var(--vscode-button-hoverBackground);
+}
+
+input[type="text"], textarea {
+\tbackground-color: var(--vscode-input-background);
+\tcolor: var(--vscode-input-foreground);
+\tborder: 1px solid var(--vscode-input-border);
+\tpadding: 4px;
+}

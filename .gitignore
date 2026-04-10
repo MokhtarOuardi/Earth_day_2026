@@ -1,0 +1,12 @@
+# Node.js
+node_modules/
+dist/
+out/
+.vscode-test/
+
+# OS/IDE
+.DS_Store
+.vscode/
+
+# Build/Logs
+*.log

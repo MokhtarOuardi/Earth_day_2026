@@ -1,0 +1,10 @@
+{
+  "name": "intent-classifier-js",
+  "version": "1.0.0",
+  "description": "Semantic intent classification using Transformers.js",
+  "type": "module",
+  "main": "intent_classifier.mjs",
+  "dependencies": {
+    "@huggingface/transformers": "^3.3.1"
+  }
+}
